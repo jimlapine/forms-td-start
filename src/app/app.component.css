@@ -2,10 +2,16 @@
   margin-top: 30px;
 }
 
+.error {
+  font-weight: bold;
+  font-style: italic;
+  color: red !important;
+}
+
 /* only display red border on elements that are :invalid and have been touched */
-/* input.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched {
   border:1px solid red;
-} */
+}
 
 select.ng-invalid.ng-touched {
   border:1px solid red;
