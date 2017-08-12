@@ -23,18 +23,27 @@
           <button class="btn btn-default" type="button">Suggest an Username</button>
           <div class="form-group">
             <label for="email">Mail</label>
-            <!-- Adding ngModel allows us to set this input as a control within the form
-                We also have to add the HTML name attribute -->
-            <!-- We can add the HTML required tag to make the field required. -->
-            <!-- We can also add the email directive to indicate this field is an email and must be valid -->
+            <!--
+              Adding ngModel allows us to set this input as a control within the form,
+              We also have to add the HTML name attribute,
+              We can add the HTML required tag to make the field required.
+              We can also add the email directive to indicate this field is an email and must be valid.
+              We can also add a local reference #email and assign it to the ngModel, this allows us to determine
+              if control is valid or touched, or any of the other control properties
+          -->
             <input
               type="email"
               id="email"
-              class="form-control"
+              [ngClass]="{'form-control': !email.touched, 'form-control-lg': !email.valid && email.touched}"
               ngModel
               name="email"
               required
-              email>
+              email
+              #email="ngModel">
+            <span
+              class="help-block"
+              *ngIf="!email.valid && email.touched">
+              Please enter a valid email address</span>
           </div>
         </div>
         <div class="form-group">
@@ -50,7 +59,14 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <!--
+            We can bind to the form valid property and disable the button until the form is valid.
+          Here we are using the local reference #f see above
+        -->
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
       </form>
     </div>
   </div>
