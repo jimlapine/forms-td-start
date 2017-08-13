@@ -116,7 +116,7 @@
                 required> {{gender}}
             </label>
           </div>
-          <span class="help-block error" *ngIf="!gnder?.valid && !gnder?.touched">
+          <span class="help-block error" *ngIf="!gnder?.valid && gnder?.touched">
               A gender is required.</span>
         </div>
         <!--
