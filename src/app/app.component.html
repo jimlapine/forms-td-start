@@ -116,8 +116,8 @@
                 required> {{gender}}
             </label>
           </div>
-          <!-- <span class="help-block error" *ngIf="!gnder.valid && !gnder.touched">
-              A gender is required.</span> -->
+          <span class="help-block error" *ngIf="!gnder?.valid && !gnder?.touched">
+              A gender is required.</span>
         </div>
         <!--
             We can bind to the form valid property and disable the button until the form is valid.
